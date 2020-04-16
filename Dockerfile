@@ -7,11 +7,14 @@ RUN dnf install -y cups \
  && dnf clean all \
  && rm -rf /var/cache/dnf
 
+# add cups admin
+RUN adduser --home /home/admin -G lp,wheel lpadmin
+
 # expose port
 EXPOSE 631
 
-# copy init config file
-COPY cups/cupsd.conf /etc/cups/
+# copy init config files
+COPY cups/ /etc/cups/
 
 # start service
 COPY ./docker-entrypoint.sh /
