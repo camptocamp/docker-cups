@@ -8,7 +8,7 @@ RUN dnf install -y cups cronie-anacron \
  && rm -rf /var/cache/dnf
 
 # add cups admin
-RUN adduser --home /home/admin -G lp,wheel lpadmin
+RUN adduser -G lp,wheel lpadmin
 
 # expose port
 EXPOSE 631
