@@ -1,14 +1,14 @@
-FROM centos:8
+FROM ubuntu:focal
 
 LABEL maintainer="lenny.consuegra@camptocamp.com"
 
 # install needed packages
-RUN dnf install -y cups cronie-anacron \
- && dnf clean all \
- && rm -rf /var/cache/dnf
+RUN apt-get update \
+ && DEBIAN_FRONTEND="noninteractive" apt-get install -y cups \
+ && rm -rf /var/lib/apt/lists/*
 
 # add cups admin
-RUN adduser -G lp,wheel lpadmin
+RUN useradd -g lpadmin lpadmin
 
 # expose port
 EXPOSE 631

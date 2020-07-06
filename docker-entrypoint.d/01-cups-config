@@ -6,7 +6,7 @@ fi
 
 if ! [ -z "${ADDITIONAL_USER}" ]; then
   user=$(echo ${ADDITIONAL_USER}|cut -d: -f1)
-  adduser ${user}
+  useradd ${user}
   pwd=$(echo ${ADDITIONAL_USER}|cut -d: -f2)
   echo "${user}:${pwd}" | chpasswd
 fi
