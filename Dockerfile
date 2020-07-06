@@ -8,7 +8,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # add cups admin
-RUN useradd -g lpadmin lpadmin
+RUN useradd -m -g lpadmin lpadmin
 
 # expose port
 EXPOSE 631
@@ -19,5 +19,5 @@ COPY docker-entrypoint.d /docker-entrypoint.d
 
 # start service via entrypoint
 COPY docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh", "cupsd"]
-CMD ["-f"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["cupsd", "-f"]
