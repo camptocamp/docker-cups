@@ -15,4 +15,8 @@ if ! [ -z "${LOG_LEVEL}" ]; then
   sed -i "s/LogLevel warn/LogLevel ${LOG_LEVEL}/" /etc/cups/cupsd.conf
 fi
 
+if ! [ -z "${MAX_JOBS}" ]; then
+  sed -i "s/MaxJobs 500/MaxJobs ${MAX_JOBS}/" /etc/cups/cupsd.conf
+fi
+
 chgrp lp /etc/cups/cupsd.conf
