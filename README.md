@@ -8,7 +8,7 @@ Start the container
 
     docker run -e ADMIN_PASSWORD=password -e LOG_LEVEL=debug -p 631:631 camptocamp/cups
 
-Access the web interface via https://localhost:631/ and use the above password for the administration's section.
+Access the web interface via https://localhost:631/ and use the above password for the administration's section (user lpadmin).
 
 ## Configuration
 
