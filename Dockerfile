@@ -7,6 +7,10 @@ RUN apt-get update \
  && DEBIAN_FRONTEND="noninteractive" apt-get install -y cups \
  && rm -rf /var/lib/apt/lists/*
 
+# add CAB drivers and filter module
+COPY files/ppd /usr/share/ppd/cab
+COPY files/rastertocab /usr/lib/cups/filter/rastertocab
+
 # add cups admin
 RUN useradd -g lpadmin lpadmin
 
