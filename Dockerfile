@@ -4,7 +4,7 @@ LABEL maintainer="lenny.consuegra@camptocamp.com"
 
 # install needed packages
 RUN apt-get update \
- && DEBIAN_FRONTEND="noninteractive" apt-get install -y cups \
+ && DEBIAN_FRONTEND="noninteractive" apt-get install -y cups libcupsimage2\
  && rm -rf /var/lib/apt/lists/*
 
 # add CAB drivers and filter module
